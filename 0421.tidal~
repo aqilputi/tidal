@@ -1,0 +1,2 @@
+d1 $ sound "sn:8"
+  # hpf "1000" # hresonance "0 0.2 0.4 0.6"

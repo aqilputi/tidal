@@ -1,0 +1,28 @@
+d1 $ stack
+  [
+    rot "<0 0 0 1 0 0 0 3>"
+    $ n "9 40 ~ 23 32 16 ~ 19" |+| speed "<1 2 1 1.5>"
+    # sound "hyrulesound"
+    # gain 1
+  ,
+    sound "{[bd*2 ~ bd*2 bd], [~ sn:2], hh:0*8}"
+    # gain "1.2"
+  ,
+    jux (# crush 2)
+    $ striate' 8 0.2
+    $ n "64"
+    # sound "hyrulesound"
+    |+| speed "<1 2 1 1.5>"
+    # cutoff 1500
+    # delay 0.5
+    # delaytime 0.2
+    # delayfb 0.8
+    # orbit 1
+    # gain "0.8"
+  ,
+    n "{65(3,8) }"
+    # sound "hyrulesound"
+  ]
+    
+
+  d2 $ sound "bd"

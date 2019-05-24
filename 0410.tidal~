@@ -1,0 +1,49 @@
+d8 $ every 4 (density 0.5)
+  $ jux (rev) $ slow 2 $ (striate' 16 0.4 $ sound "yoshi:2")
+|+| speed "{[1 1.5 1.25 2], [0.5 0.25]}"
+  # delay 0.2
+  # delaytime 0.5
+  # orbit 1
+  # gain 0.9
+
+d1 $ every 3 (# crush 4)
+  $ slow 4 $ striate' 64 0.2 $ sound "yoshi:11 "
+  # delay 0.2
+  # delaytime 0.5
+
+d1 $ silence 
+
+d2 $ sound "{bd(3,8), [~ yoshi:3 yoshi:3?]/4}"
+
+d3 $ slow 4 $ sound "[hh*8]"
+  # delay 0.9
+  # delaytime 0.7
+  # orbit 3
+
+d1 $ sound "{bd*4, [~ yoshi:10]}"
+
+d4 $ every 2 (# crush 6)
+  $ slow 2 $ striate' 32 0.1 $ sound "yoshi:2 yoshi:3"
+  # delay 0.5
+  # delaytime 0.7
+  # gain 1.1
+
+d4 $ silence
+
+d5 $ every 4 (density 0.5)
+  $ every 3 (# crush 5)
+  $ every 2 (# speed 2)
+  $ sound "[bin:1 [blip:2 blip:2?]]*4"
+
+d6 $ sound "click*16"
+  # pan sine
+  # speed (slow 4 $ range 1 8 $ sine)
+  # gain 0.8
+
+d7 $ striate 4 $ sound "~ yoshi:10*2"
+  |+| speed "[1 1.25]/2"
+
+
+hush
+
+  

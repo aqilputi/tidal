@@ -1,0 +1,4 @@
+setcps (100/60/4)
+
+d1 $ slow 2 $ striate' 8 0.4 $ sound "hyrulesound:2"
+|+| speed "[1 1.25 1.5 2]"

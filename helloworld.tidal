@@ -1,0 +1,45 @@
+
+d1 $ sometimes (|+ speed (range 0.5 8 $ rand))
+   $ every 2 (|+ up (range 1 12 $ rand))
+   $ off 0.06275 (|+ 12) 
+   $ sometimes (# crush 5) $ sound "<wind(5,8) wind(3,8), bd(3,8)>"
+   # delay "0.9"
+   # delayfeedback "0.9"
+   # delaytime "0.1"
+   # orbit 1
+   # n (every 2 (rev)
+       $ every 8 (+ 8) $ every 3 (+ 5) $ every 4 (+ 3) $ "2 5")
+   # gain "0.7"
+
+d4 $ every 4 (rev) $ sound "[[~ [hh hh]] [hh hh]]*2"
+  # gain 1
+  # orbit 5
+
+d2 $ silence
+
+
+
+d3 $ every 4 (0.25 <~)
+  $ speed "<[-1 1] [-1 1], [-2] [1 1 -1]>"
+  # sound "sd"
+  # gain "0.5"
+  # pan (sine)
+  -- effects
+  # delay (slow 8 $ range 0.5 1.2 $ tri)
+  # delayfeedback "0.88"
+  # delaytime "0.02"
+  # orbit 3
+
+d2 $ off 0.25 (|+ 0.5) $ off 0.125 (|+ 0.25) $ speed "0.25"
+  # n (every 3 (|+ 2) $ every 5 (|+| 5 ) $ every 4 (+| 4)"<2 3 4 5>")
+  # sound "arpy"
+  # delay "0.9" # delayfeedback "0.96" # delaytime "0.04" # gain 0.89
+  # orbit 2
+  # gain 0.7
+
+solo 2
+
+unsolo 2
+
+hush
+

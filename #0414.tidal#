@@ -1,0 +1,50 @@
+cps 0.4
+
+  hush
+
+d1 $ slow 16 $ striate 256 $ sound "8mother"
+  # room 0.4
+  # sz 0.8
+
+d1 $ silence
+
+d2 $ rot "<0 0 0 1 0 0 0 2>" $ every 2 (const (sound "{[bd*2 ~ bd*2 ~], [hh:8*16], [~sn:2~sn:2]}" # orbit 2 )) $ sound "{bd*8?, [hh:8*16?], [~ sn:2 ~ sn:2]}"
+  # orbit 2
+
+d3 $ rot "<0 1>" $ stack
+  [
+    jux (rev)
+    $ sometimes (# crush 3)
+    $ sound "db*16?"
+    # n (range 1 30 rand)
+    # gain 1
+    # delay 0.6
+    # delaytime 0.01
+    # delayfb 0.9
+    # cutoff (range 800 2000 rand)
+    # orbit 3
+  ,
+    jux (rev)
+    $ stutWith 8 (0.0625) (# cutoff (slow 4 $ range 1000 5000 sine))
+    $ (striate' "<4 6 8 16>" 0.2
+    $ sound "hyrulesound:13")
+    |+| speed "<4 3 4 5>"
+    # gain 0.7
+    # orbit 4
+  ]
+
+d4 $ stack
+  [
+    stutWith 2 (0.0625) (# speed "-1")
+    $ slow 4 $ (striate' 16 0.4 $ sound "yoshi:4")
+    # cutoff (slow 2 $ range 600 4000 sine)
+    # gain 0.9
+    # orbit 5
+  ,
+    sound "{yoshi:7*8?, [yoshi:15 / 4]}"
+  ]
+   
+d3 $ silence
+
+hush
+  

@@ -1,0 +1,43 @@
+
+let str st_num st_tempo st_gain p = stutWith st_num (st_tempo) ((# lpf 1500) . (|*| gain st_gain)) $ p
+
+d1 $ stack
+[
+  slow 2
+  $ every 2 ((|+| speed 1.2) . (|+| room 0.6))
+  $ str 64 0.050 0.9 $ (striate' 4 0.1 $ n "28" # "hyrulesound")
+  # speed (slow 0.61 $ range 0.97 1 sine)
+  # lpf 1000
+  # room 0.4
+  # sz 0.6
+  # gain 0.8
+  # orbit 0
+  ,
+  (8 ~>)
+  $ slow 8
+  $ (striate' 128 0.25 $ n "76" # sound "hyrulesound")
+  # cutoff (slow 0.5 $ range 1000 3000 sine)
+  |+| speed (slow 0.61 $ range 0.96 1.00 sine)
+  # room 0.4
+  # sz 0.4
+  # gain 0.5
+  # orbit 2
+  ,
+    almostNever ((# crush 5) . (|+| room 0.8) . (|+| sz 0.8))
+    $ rarely (slow 0.5)
+  $ n (run 8) # sound "{bubble}"
+  # delay 0.5
+  # delaytime (slow 0.75 $ range 0.005 0.01 sine)
+  # delayfb (range 0.9 0.98 rand)
+  # orbit 3
+  ,
+    str 32 0.05 0.96
+    $ n "1(3,8)" # sound "chin"
+    # gain 1.1
+    # orbit 4
+]
+
+d2 $ str 32 0.05 0.96
+    $ n "1(3,8)" # sound "chin"
+
+  hush

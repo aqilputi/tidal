@@ -1,0 +1,52 @@
+d1 $ euclid 8 16 $ up (slow 4 $ run 12) # sound "supergong"
+  # bandf (slow 8 $ range 400 2000 $ sine)
+  # room 0.3
+  # sz 0.6
+  # orbit 2
+  # pan (slow 2 $ range 0 1 $ sine)
+  # gain (fast 10 $ range 0.7 1.2 $ sine)
+
+d3 $ slow 1 $ every 2 (rev)
+  $ euclid 5 16 $ n (slow 8 $ range 1 12 $ square) # s "superchip" # sustain "0.1"
+  # pitch2 "[1.2 1.5 2 3]" # pitch3 "[2 2 4 4]"
+  # slide "[0 0.1]/4" # speed "1"
+  # gain "0.9"
+
+solo 3
+
+unsolo 3
+
+
+hush
+
+
+
+
+d2 $ sound "<[bd:2*4], [~ hh:0*2 hh [hh? hh?]]*2, [~ ~ ~ ~ ~ ~ ~ cp:9]/2>"
+  # delay "0.68"
+  # delayfeedback "0.5"
+  # orbit 7
+  # gain "[1.1]/2"
+
+d6 $ sound "[cp:9 ~ ~ ~ ~ ~ ~ cp:9]/2"
+  # delay "0.6"
+  # delayfeedback "0.3"
+  # orbit 7
+  # gain "[1.1]/2"
+
+
+d4 $ n "<[~ 0]>"
+  # sound "808"
+  # orbit 6
+  # gain "1.1"
+
+
+d5 $ n "2/2" # sound "cosmicg"
+  # bandf (slow 0.5 $ range 100 2000 $ sine)
+  # room 0.9
+  # sz 0.9
+  # orbit 2
+  # gain 0.7
+
+
+  hush

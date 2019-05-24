@@ -1,0 +1,38 @@
+
+let saw_control c a b = slow c $ range a b saw 
+
+d2 $ sound "bd:1*12"
+  # hpf (saw_control 4 440 1760) 
+  # hresonance (saw_control 0.5 0 9)
+
+d1 $ rot "<0 0 0 0 1 1 1 1>"
+  $ (stutWith 2 (0.02) ((|+| speed "-1")) $ n "[3 5 4 [0 1 2]]" # sound "arpy")
+  |*| speed "<1.5 1.25 1.125 1>"
+  # gain 1
+  # waveloss "30"
+  # room 0.4
+  # sz 0.6
+  # orbit 0
+  # attack "0.1"
+  # shape "0 0.3 0 0"
+
+
+d2 $ silence
+
+d2 $ stack
+[
+  n "6*8?" # s "bd"
+  # gain 1.1
+  ,
+  n "{7(5,8), [0*4? 0*4? 0*4? 0*4]}" # s "hh"
+  # gain 1.2
+  ,
+  n "38*16" # s "hyrulesound"
+  # shape "[0.6 0 0 0]*4"
+  # gain 0.9
+  ,
+  slow 4 $ (striate' 64 0.05 $ n "30" # s "hyrulesound")
+  # gain (slow 2 $ range 0.2 1.2 sine)
+] 
+
+  hush
